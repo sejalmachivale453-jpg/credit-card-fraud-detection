@@ -81,7 +81,8 @@ Precision–Recall threshold
 Best hyperparameters found using RandomizedSearchCV
 
 dataset
-
+This dataset is included in the repository.  
+File: `credit_card_fraud_dataset.csv`
 
 🙌 Author
 
