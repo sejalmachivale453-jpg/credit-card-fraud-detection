@@ -72,6 +72,7 @@ Precision (Fraud): 0.34
 ✔ Model becomes more stable
 ✔ Fewer false positives
 ✔ Better fraud detection balance
+
 📁 Project Files
 
 credit_card_fraud_detection.py – main ML script
