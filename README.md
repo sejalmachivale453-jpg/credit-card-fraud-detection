@@ -1,90 +1,115 @@
-# Credit Card Fraud Detection – Machine Learning Project
+📝 README.md — Credit Card Fraud Detection (Logistic Regression + SMOTE + Threshold Tuning)
+📌 Project Overview
 
-This project focuses on detecting fraudulent credit card transactions using Machine Learning techniques.  
-It includes end-to-end data preprocessing, imbalance handling, model building, threshold optimization, and evaluation.
+This project focuses on detecting fraudulent credit card transactions using Machine Learning.
+Since fraud cases are very rare, the dataset is highly imbalanced.
+To solve this, the project uses:
 
----
+SMOTE Oversampling to balance classes
 
-## 🚀 Project Highlights
+Logistic Regression as the main model
 
-- Built an XGBoost-based fraud detection model on imbalanced financial transaction data  
-- Applied **SMOTE-Tomek** to handle class imbalance and improve minority fraud detection  
-- Performed **hyperparameter tuning** using RandomizedSearchCV  
-- Used **Precision–Recall curve** to find the best decision threshold  
-- Achieved ~80% recall on fraud cases by reducing false negatives  
-- Evaluated the model using classification report & confusion matrix  
+Threshold Tuning using Precision–Recall Curve to improve fraud detection performance
 
----
+The goal is to reduce missed frauds (higher recall) while keeping false alarms controlled.
 
-## 🧠 Machine Learning Pipeline
+📂 Project Workflow
+1️⃣ Data Preprocessing
 
-1. Data Loading & Exploration  
-2. Encoding categorical features  
-3. Train-test split with stratification  
-4. SMOTE-Tomek sampling  
-5. Feature scaling (StandardScaler)  
-6. XGBoost model training  
-7. Hyperparameter tuning (RandomizedSearchCV)  
-8. Threshold optimization  
-9. Final evaluation  
+Loaded dataset and checked missing values
 
----
+Performed one-hot encoding for the transaction_type column
 
-## 🛠️ Tech Stack
+Split dataset into training and testing sets (80–20 split)
 
-- **Python**
-- **NumPy**, **Pandas**
-- **Scikit-Learn**
-- **XGBoost**
-- **Imbalanced-Learn**
-- **Matplotlib**
+2️⃣ Handling Imbalanced Data
 
----
+Used SMOTE (Synthetic Minority Oversampling Technique) to balance class distribution.
 
-## 📂 Project Structure
+Before SMOTE:
 
-├── credit_card_fraud_detection.py # Main ML code
-├── credit_card_fraud_dataset.csv # Dataset (optional)
-├── README.md # Project documentation
+Fraud cases were very few
 
+After SMOTE:
 
----
+Class distribution: {0: 3310, 1: 3310}
 
-## ▶️ How to Run the Project
+3️⃣ Model Training
 
-### 1. Install dependencies
-```bash
-pip install -r requirements.txt
+Used Logistic Regression (simple + beginner-friendly)
 
-2.run the script
+Scaled features using StandardScaler
 
-python credit_card_fraud_detection.py
+4️⃣ Threshold Tuning (Major Improvement)
+
+Instead of using default threshold 0.5, the model finds the best threshold using the Precision–Recall curve.
+
+This improves fraud detection performance.
+
+Default threshold accuracy: 66%
+
+Tuned threshold accuracy: 74%
+
+Better precision & better recall balance for fraud class
 
 📊 Model Performance
+🔹 Before Threshold Tuning
 
-Recall (Fraud class): ~80%
+Accuracy: 0.667
 
-Improved fraud capture rate
+Recall (Fraud): 0.63
 
-Lower false negatives
+Precision (Fraud): 0.29
 
-Balanced results after SMOTE-Tomek
+🔹 After Threshold Tuning
 
-📘 Results Included
+Accuracy: 0.743
 
-Classification Report
+Recall (Fraud): 0.51
 
-Confusion Matrix
+Precision (Fraud): 0.34
 
-Precision–Recall threshold
+✔ Model becomes more stable
+✔ Fewer false positives
+✔ Better fraud detection balance
+📁 Project Files
 
-Best hyperparameters found using RandomizedSearchCV
+credit_card_fraud_detection.py – main ML script
 
-dataset
-This dataset is included in the repository.  
-File: `credit_card_fraud_dataset.csv`
+credit_card_fraud_dataset.csv – dataset (add your link here)
 
-🙌 Author
+README.md – documentation
 
-Sejal Machivale
-Machine Learning & Data Science Enthusiast
+🔧 Technologies Used
+
+Python
+
+Pandas, NumPy
+
+Scikit-Learn
+
+Imbalanced-Learn
+
+Matplotlib
+
+SMOTE
+
+Logistic Regression
+
+🚀 How to Run the Project
+pip install -r requirements.txt
+python credit_card_fraud_detection.py
+
+📌 Key Learnings
+
+Understanding data imbalance
+
+Using SMOTE for oversampling
+
+Logistic Regression for classification
+
+Using Precision-Recall Curve
+
+Threshold tuning to improve minority class recall
+
+Evaluating model using confusion matrix & reports
